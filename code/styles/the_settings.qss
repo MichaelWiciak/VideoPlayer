@@ -1,0 +1,86 @@
+#settingsPanel {
+  min-width: 12em;
+  padding: 1em;
+}
+
+*[theme="light"] #settingsPanel {
+  background-color: #e2e8f0;
+  
+}
+*[theme="dark"] #settingsPanel {
+  background-color: #334155;
+
+}
+*[theme="contrast"] #settingsPanel {
+
+  border-right: 2px solid white;
+}
+
+
+#settingsPanel__title {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+#settingsPanel__form-label {
+  background-color: transparent;
+  font-size: 16px;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+QComboBox {
+  background-color: white;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  color: black;
+}
+
+QComboBox:on {
+  background-color: #bae6fd;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(:/icons/chevron-up-down.png);
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+}
+
+QComboBox QListView {
+    border-radius: 0.5em;
+    background-color: #f8fafc;
+    padding: 0.5em;
+    min-width: 5em;
+}
+
+QComboBox QListView::item {
+    border-radius: 0.5em;
+    background-color: #f8fafc;
+    padding: 0.5em;
+    min-height: 70px;
+}
+ 
+QLineEdit {
+  background-color: white;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  color: black;
+}
+
+QPushButton {
+  background-color: white;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  border-radius: 0.5em;
+  color: black;
+}
+
+QPushButton::pressed {
+  background-color: #bae6fd;
+}

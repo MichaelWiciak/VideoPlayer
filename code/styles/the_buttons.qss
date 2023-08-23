@@ -1,0 +1,61 @@
+QPushButton {
+  qproperty-iconSize: 160px 90px;
+  background-color: transparent;
+}
+
+#buttons__button {
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+*[theme="light"] #buttons__button {
+  background-color: white;
+}
+
+*[theme="dark"] #buttons__button {
+  background-color: #0c4a6e;
+}
+
+*[theme="contrast"] #buttons__button {
+  background-color: black;
+  border: 1px solid white;
+}
+
+*[theme="light"] #buttons__button:hover {
+  background-color: #f0f9ff;
+}
+
+*[theme="dark"] #buttons__button:hover {
+  background-color: #075985;
+}
+
+*[theme="contrast"] #buttons__button:hover {
+  border: 2px solid white;
+}
+
+*[theme="light"] #buttons__button[active="true"] {
+  background-color: #7dd3fc;
+}
+
+*[theme="dark"] #buttons__button[active="true"] {
+  background-color: #0369a1;
+}
+
+*[theme="contrast"] #buttons__button[active="true"] {
+  border: 3px solid white;
+}
+
+
+#buttons__duration {
+  background: black;
+  color: white;
+  margin-right: 0.1em;
+  padding: .15em .3em;
+}
+
+#buttons__filename {
+  text-align: center;
+  background-color: transparent;
+  padding-top: 0.5em;
+  padding-bottom: 0.25em;
+}

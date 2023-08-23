@@ -1,0 +1,7 @@
+#tutorialBanner, QLabel {
+    background-color: #7dd3fc;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: bold;
+    font-size: 15px;
+}

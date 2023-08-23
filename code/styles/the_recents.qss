@@ -1,0 +1,54 @@
+*[theme="light"] #recentsPanel {
+    background-color: #e2e8f0;
+}
+*[theme="dark"] #recentsPanel {
+    background-color: #334155;
+}
+*[theme="contrast"] #recentsPanel {
+    border-left: 2px solid white;
+}
+
+#recentsPanel__title {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+QListWidget {
+    font-size: 12px;
+    min-width: 16em;
+}
+
+QListView::item:hover {
+    background-color: #60a5fa;
+}
+
+#recents__item {
+    border-radius: 4em;
+    margin-left: .5em;
+}
+
+#recents__item:hover {
+    background-color: #60a5fa;
+}
+
+#recents__item QFrame {
+    background-color: transparent;
+}
+
+#recents__removeVideoBtn {
+    background-color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    width: 1.15em;
+    height: 1.15em;
+    image: url(":/icons/trash.png");
+}
+
+#recents__removeVideoBtn::hover {
+    background-color: #e0f2fe;
+}
+
+#recents__removeVideoBtn::pressed {
+    background-color: #bae6fd;
+}

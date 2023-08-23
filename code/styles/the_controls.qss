@@ -1,0 +1,75 @@
+QPushButton {
+    /* border: 0.125em solid black; */
+    background-color: white;
+    color: black;
+    border-radius: 0.5em;
+    height: 2.25em;
+    width: 2.25em;
+    qproperty-iconSize: 24px;
+}
+
+*[buttonSize="small"] QPushButton {
+    height: 2em;
+    width: 2em;
+}
+
+*[buttonSize="large"] QPushButton {
+    height: 3em;
+    width: 3em;
+}
+
+QPushButton::hover {
+    background-color: #e0f2fe;
+}
+
+QPushButton::pressed {
+    background-color: #bae6fd;
+}
+
+QSlider {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+QComboBox {
+    background-color: white;
+    color: black;
+    height: 2.25em;
+    min-width: 2.25em;
+    /* border: 0.125em solid black; */
+    border-radius: 0.5em;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: none;
+}
+
+*[buttonSize="small"] QComboBox {
+    height: 2em;
+}
+
+*[buttonSize="large"] QComboBox {
+    height: 3em;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(:/icons/chevron-up-down.png);
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+}
+
+QComboBox QListView {
+    border-radius: 0.5em;
+    background-color: #f8fafc;
+    padding: 0.5em;
+    min-width: 5em;
+}
+
+
+#rewindBtn, #fastforwardBtn {
+    width: 4em;
+}

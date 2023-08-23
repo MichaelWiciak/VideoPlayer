@@ -1,0 +1,55 @@
+/* Reset styles */
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px solid black;
+}
+
+QPushButton {
+    /* border: 0.125em solid black; */
+    background-color: white;
+    border-radius: 0.5em;
+    height: 2.25em;
+    width: 2.25em;
+    qproperty-iconSize: 24px;
+}
+
+*[buttonSize="small"] QPushButton {
+    height: 2em;
+    width: 2em;
+}
+
+*[buttonSize="large"] QPushButton {
+    height: 3em;
+    width: 3em;
+}
+
+QPushButton::hover {
+    background-color: #e0f2fe;
+}
+
+QPushButton::pressed {
+    background-color: #bae6fd;
+}
+
+*[theme="light"] #appbar {
+    background-color: #f1f5f9;
+}
+
+*[theme="dark"] #appbar {
+  background-color: #1e293b;
+  color: #0f172a;
+}
+
+*[theme="contrast"] #appbar {
+  background-color: black;
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+
+#appbar__title {
+    background-color: transparent;
+    font-size: 28px;
+    font-weight: bold;
+}

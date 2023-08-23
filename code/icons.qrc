@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/pause.png</file>
+        <file>icons/play.png</file>
+        <file>icons/arrows-pointing-out.png</file>
+        <file>icons/cog-8-tooth.png</file>
+        <file>icons/queue-list.png</file>
+        <file>icons/speaker-wave.png</file>
+        <file>icons/speaker-x-mark.png</file>
+        <file>icons/chevron-down.png</file>
+        <file>icons/chevron-up-down.png</file>
+        <file>icons/chevron-up.png</file>
+        <file>icons/chevron-double-right.png</file>
+        <file>icons/chevron-double-left.png</file>
+        <file>icons/trash.png</file>
+        <file>icons/plus.png</file>
+        <file>icons/question-mark-circle.png</file>
+        <file>icons/information-circle.png</file>
+        <file>icons/arrow-uturn-left.png</file>
+        <file>icons/arrow-uturn-right.png</file>
+        <file>icons/backward.png</file>
+        <file>icons/forward.png</file>
+        <file>icons/arrow-path-rounded-square--disabled.png</file>
+        <file>icons/arrow-path-rounded-square--enabled.png</file>
+        <file>icons/arrow-path-rounded-square--one.png</file>
+    </qresource>
+</RCC>

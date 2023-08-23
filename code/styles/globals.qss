@@ -1,0 +1,89 @@
+/* Reset styles */
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px solid black;
+    font-family: 'Arial';
+}
+
+*[theme="light"] * {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+*[theme="dark"] * {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+*[theme="contrast"] * {
+  background-color: black;
+  color: white;
+}
+
+* {
+  /* background-color: #22c55e; */
+}
+
+QSlider {
+  height: 2.25em;
+  /* border-radius: 0.5em; */
+}
+
+*[buttonSize="small"] QSlider {
+    height: 2em;
+}
+
+*[buttonSize="large"] QSlider {
+    height: 3em;
+}
+
+QSlider::groove:horizontal {
+    background: white;
+  border-radius: 0.5em;
+    /* position: absolute;  */
+    /* left: 4px; right: 4px; */
+}
+
+QSlider::handle:horizontal {
+  border-radius: 0.25em;
+    background: #38bdf8;
+    width: 0.5em;
+}
+
+QSlider::handle:horizontal::hover {
+  border-radius: 0.25em;
+    background: #0ea5e9;
+    width: 0.5em;
+}
+
+QSlider::handle:horizontal::pressed {
+  border-radius: 0.25em;
+    background: #0369a1;
+    width: 0.5em;
+}
+
+QSlider::groove:horizontal:disabled {
+    background: #f1f5f9;
+}
+
+QSlider::handle:horizontal:disabled {
+    background: #cbd5e1;
+}
+
+QScrollBar:horizontal {
+  background: #0ea5e9;
+  background: transparent;
+  height: 0.75em;
+}
+
+QScrollBar::handle:horizontal {
+  background: #38bdf8;
+  border-radius: 0.33em;
+}
+QScrollBar::handle:horizontal:hover {
+  background: #0ea5e9;
+}
+QScrollBar::handle:horizontal:pressed {
+  background: #0284c7;
+}

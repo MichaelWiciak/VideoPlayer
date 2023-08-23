@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/the_controls.qss</file>
+        <file>styles/the_appbar.qss</file>
+        <file>styles/the_recents.qss</file>
+        <file>styles/globals.qss</file>
+        <file>styles/the_settings.qss</file>
+        <file>styles/the_buttons.qss</file>
+        <file>styles/the_tutorial.qss</file>
+    </qresource>
+</RCC>
