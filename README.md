@@ -3,7 +3,7 @@
 ![Alt text](Images/img1.png)
 ![Alt text](Images/img2.png)
 
-## Introduction
+## Introduction (see videos for presentation)
 
 HTVP (Hot Tomato Video Player) is a responsive, feature-rich video player built using the desktop Qt framework (version 5.15.2). Initially designed as a tablet application, its responsiveness allows it to be used on both desktop and mobile devices. Throughout development, we followed agile methodologies, using Kanban boards to manage tasks and user feedback to guide iterations.
 
