@@ -6,10 +6,8 @@ A responsive video player I built with a small team for university. It's a Qt de
 
 [![HTVP Showcase](Images/thumbnail.png)](https://youtu.be/sPTKfwrXlgI)
 
-<figure style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-    <img src="Images/img1.png" alt="HTVP running in dark mode" style="height: 300px; width: auto;">
-    <img src="Images/img2.png" alt="HTVP running in light mode" style="height: 300px; width: auto;">
-</figure>
+<img src="Images/img1.png" alt="HTVP running in dark mode" style="height: 300px; width: auto;">
+<img src="Images/img2.png" alt="HTVP running in light mode" style="height: 300px; width: auto;">
 
 ## The Interesting Bits
 
