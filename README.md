@@ -4,10 +4,7 @@ A responsive video player I built with a small team for university. It's a Qt de
 
 > Commit history got scrambled as this project was migrated from a private university repo.
 
-<video width="100%" controls>
-    <source src="HTVP%20Showcase.mp4" type="video/mp4">
-    Your browser doesn't support HTML5 video.
-</video>
+[![HTVP Showcase](Images/thumbnail.png)](HTVP%20Showcase.mp4)
 
 ![HTVP running in dark mode](Images/img1.png)
 ![HTVP running in light mode](Images/img2.png)
