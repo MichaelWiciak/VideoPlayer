@@ -4,10 +4,9 @@ A responsive video player I built with a small team for university. It's a Qt de
 
 > Commit history got scrambled as this project was migrated from a private university repo.
 
-[![HTVP Showcase](Images/thumbnail.png)](HTVP%20Showcase.mp4)
+[![HTVP Showcase](Images/thumbnail.png)](https://youtu.be/sPTKfwrXlgI)
 
-![HTVP running in dark mode](Images/img1.png)
-![HTVP running in light mode](Images/img2.png)
+<img src="Images/img1.png" alt="HTVP running in dark mode">
 
 ## The Interesting Bits
 
@@ -148,9 +147,9 @@ For the full technical breakdown (design decisions, iteration history, user rese
 
 Watch the app evolve over three iterations:
 
-- [Iteration 1 - Initial prototype](Tomeo%20iteration%201%20video%20demonstration.mp4)
-- [Iteration 2 - Feature additions](Tomeo%20Iteration%202%20video%20demonstration.mp4)
-- [Iteration 3 - Final polish](<Tomeo%20Iteration%203%20(HTVP)%20video%20demonstration.mp4>)
+- [Iteration 1 - Initial prototype](https://youtu.be/jrpVTVlgRuw)
+- [Iteration 2 - Feature additions](https://youtu.be/D9u4u7tyQrc)
+- [Iteration 3 - Final polish](https://youtu.be/Mhzum5tXQts)
 
 ## Contributors
 
