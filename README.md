@@ -1,70 +1,163 @@
 # Hot Tomato Video Player (HTVP)
 
-![Alt text](Images/img1.png)
-![Alt text](Images/img2.png)
+A responsive video player I built with a small team for university. It's a Qt desktop app that just plays videos, but with a proper UI that scales nicely across desktop, tablet, mobile sizes and supports quite a few cool features. Have a look at the video (:
 
-## Introduction (see videos for presentation)
+> Commit history got scrambled as this project was migrated from a private university repo.
 
-HTVP (Hot Tomato Video Player) is a responsive, feature-rich video player built using the desktop Qt framework (version 5.15.2). Initially designed as a tablet application, its responsiveness allows it to be used on both desktop and mobile devices. Throughout development, we followed agile methodologies, using Kanban boards to manage tasks and user feedback to guide iterations.
+<video width="100%" controls>
+    <source src="HTVP%20Showcase.mp4" type="video/mp4">
+    Your browser doesn't support HTML5 video.
+</video>
 
-## Key Features
+![HTVP running in dark mode](Images/img1.png)
+![HTVP running in light mode](Images/img2.png)
 
-- Basic media controls: play, pause, fast-forward, and rewind.
-- Volume slider and mute button.
-- Video selection and playback functionality.
-- UI elements optimized for different devices and screen sizes.
-- Playlist management and recent video history.
+## The Interesting Bits
 
-## Iteration Overview
+### Responsive UI
 
-### **First Iteration: Prototyping**
+Most "responsive" apps just reflow text. HTVP actually adapts:
 
-**Goals:**
+- Speed dropdown, fast-forward, and rewind buttons hide below 600px width
+- Next/previous and repeat buttons vanish below 400px
+- Volume slider disappears below 300px
 
-- Implement basic media player controls.
-- Provide a user-friendly interface.
-- Gather early feedback through wireframes and a use case diagram.
+Hit a breakpoint and the layout reflows without anything breaking.
 
-**Achievements:**
+### Theming Without Tears
 
-- Basic functionalities (play, pause, volume control) implemented.
-- Initial UI design based on feedback.
-- Early prototypes inspired by VLC and YouTube interfaces.
+Themes work through Qt's property system. Set one property on the root widget and it cascades to all children:
 
-**Evaluation:**
+```cpp
+setProperty("theme", "dark");
+setProperty("buttonSize", "large");
+```
 
-- Feedback gathered via a user questionnaire revealed issues with video importing, leading to future improvements.
+Then your QSS just targets by property:
 
-### **Second Iteration: User-Requested Features**
+```css
+*[theme="dark"] * {
+  background-color: #334155;
+}
+```
 
-**Goals:**
+No manually updating every widget when the user switches themes.
 
-- Incorporate user feedback from the first iteration.
-- Enhance UI and add functionalities like recent video tab, drag-and-drop video loading, and next/previous buttons.
+### Panel Collapsing
 
-**Achievements:**
+The settings and recents panels toggle with mutual exclusivity opening one automatically closes the other.
 
-- Features such as video deletion, custom themes, and improved settings were implemented.
-- Prototyped UI improvements using paper sketches.
+### App Restart Mechanism
 
-**Evaluation:**
+Some settings need a full restart to apply (theme, button size, default directory). The app handles this cleanly with a `do...while` loop in main, it exits with code 1234 and relaunches. Feels seamless to the user.
 
-- User experience improved, but some edge cases revealed bugs that were noted for future iterations.
+### Platform-Specific Weirdness
 
-### **Third Iteration: Polishing and Bug Fixes**
+Turns out Qt Multimedia behaves differently across platforms:
 
-**Goals:**
+- Windows doesn't support playback speed changes, so that control gets hidden
+- Linux fullscreen doesn't work well, so that button gets hidden too
+- WMV files report as `application/vnd.ms-asf` mime type instead of video, so there's a workaround for that
 
-- Focus on bug fixing and polishing existing functionalities.
-- Design responsive layouts for both desktop and mobile use.
-- Add a help page and additional user guidance.
+### Signal/Slot Architecture
 
-**Achievements:**
+Qt's signal/slot system is pretty neat for decoupling UI from logic. The main window acts like a coordinator: player signals bubble up, controls respond, settings propagate. Over 40+ signal connections keeping everything loosely coupled.
 
-- Vertical and horizontal layouts implemented.
-- A help menu introduced to improve user understanding.
-- Playlist thumbnails, video duration, and dark/light themes added.
+### Tutorial System
 
-**Evaluation:**
+First-time users get a friendly banner that says "Press the + button to add videos." It auto-dismisses the moment you add your first file. No annoying "show me around" modal.
 
-- A final user survey confirmed this version as the most successful, with improved usability and minimal bugs.
+### Keyboard Shortcuts
+
+Full keyboard control:
+
+- Space to play/pause
+- Arrow keys for seeking and volume
+- M to mute, F for fullscreen
+- Shift+N/P for next/previous
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      TheWindow                              │
+│                   (main coordinator)                        │
+├─────────────────────────────────────────────────────────────┤
+│  ThePlayer             │  TheVideo           │  TheStore    │
+│  ├─ QMediaPlayer       │  ├─ Keyboard input  │  ├─ Settings │
+│  ├─ QMediaPlaylist     │  ├─ Drag & drop     │  └─ History  │
+│  └─ Video loading      │  └─ Display widget  │              │
+│                        │                     │              │
+│  TheControls           │  TheAppBar          │  TheRecents  │
+│  ├─ Playback buttons   │  ├─ Navigation      │  └─ Recent   │
+│  ├─ Volume slider      │  └─ Window controls │    videos    │
+│  ├─ Progress bar       │                     │              │
+│  └─ Speed dropdown     │                     │              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Project Structure
+
+```
+VideoPlayer/
+├── code/
+│   ├── tomeo.cpp            # Main entry point, handles app restart
+│   ├── the_window.h/cpp     # Main window, signal/slot coordinator
+│   ├── the_player.h/cpp     # QMediaPlayer wrapper, playlist, directory loading
+│   ├── the_video.h/cpp      # Video display widget, keyboard handling
+│   ├── the_controls.h/cpp   # Playback controls, responsive visibility
+│   ├── the_appbar.h/cpp     # Top bar with navigation and window controls
+│   ├── the_recents.h/cpp    # Recent videos panel
+│   ├── the_settings.h/cpp   # Settings panel with all the options
+│   ├── the_buttons.h/cpp    # Thumbnail buttons for playlists
+│   ├── the_store.h/cpp      # JSON config persistence
+│   ├── the_utils.h/cpp      # Shared utilities (time formatting, etc.)
+│   ├── a_video.h/cpp        # Video data container
+│   ├── styles/              # Qt stylesheets (QSS)
+│   │   ├── globals.qss
+│   │   ├── the_controls.qss
+│   │   ├── the_appbar.qss
+│   │   └── ...
+│   └── icons/               # UI icons
+├── Images/                  # README screenshots
+├── README.md
+└── LICENSE
+```
+
+## Tech Stack
+
+- **Qt 5.15.2** - Desktop framework
+- **C++11**
+- **Qt Widgets** - GUI components
+- **Qt Multimedia** - QMediaPlayer for playback
+- **QSS** - Styling (CSS for Qt)
+
+## Building
+
+```bash
+cd code
+qmake the.pro
+make
+./tomeo    # or tomeo.exe on Windows
+```
+
+You will need Qt 5.15.2 and the multimedia module installed.
+
+## More Details
+
+For the full technical breakdown (design decisions, iteration history, user research, and everything else) see [ProjectDocumentation.pdf](./ProjectDocumentation.pdf).
+
+## Iteration Videos
+
+Watch the app evolve over three iterations:
+
+- [Iteration 1 - Initial prototype](Tomeo%20iteration%201%20video%20demonstration.mp4)
+- [Iteration 2 - Feature additions](Tomeo%20Iteration%202%20video%20demonstration.mp4)
+- [Iteration 3 - Final polish](<Tomeo%20Iteration%203%20(HTVP)%20video%20demonstration.mp4>)
+
+## Contributors
+
+- **Michael Wiciak** - Primary worked on responsive UI, multi-platform compatability and design/architecture
+- **William Neild**
+- **Brooklyn Mcswiney**
+- **Lai Ting Yeung**
